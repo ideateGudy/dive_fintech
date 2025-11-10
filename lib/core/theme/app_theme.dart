@@ -13,15 +13,13 @@ class AppTheme {
         primaryContainer: AppColors.primaryLight,
         secondary: AppColors.secondary,
         surface: AppColors.surface,
-        background: AppColors.background,
         error: AppColors.error,
         onPrimary: Colors.white,
         onSecondary: Colors.white,
         onSurface: AppColors.textPrimary,
-        onBackground: AppColors.textPrimary,
         onError: Colors.white,
       ),
-      
+
       // Text theme
       textTheme: TextTheme(
         displayLarge: AppTextStyles.displayLarge,
@@ -40,7 +38,7 @@ class AppTheme {
         labelMedium: AppTextStyles.labelMedium,
         labelSmall: AppTextStyles.labelSmall,
       ),
-      
+
       // App bar theme
       appBarTheme: AppBarTheme(
         backgroundColor: AppColors.surface,
@@ -50,17 +48,17 @@ class AppTheme {
         titleTextStyle: AppTextStyles.headlineSmall,
         iconTheme: const IconThemeData(color: AppColors.textPrimary),
       ),
-      
+
       // Card theme
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: AppColors.surface,
         elevation: 2,
-        shadowColor: AppColors.textPrimary.withOpacity(0.1),
+        shadowColor: AppColors.textPrimary.withValues(alpha: 0.1),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
         ),
       ),
-      
+
       // Elevated button theme
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
@@ -75,7 +73,7 @@ class AppTheme {
           textStyle: AppTextStyles.buttonMedium,
         ),
       ),
-      
+
       // Outlined button theme
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
@@ -88,7 +86,7 @@ class AppTheme {
           textStyle: AppTextStyles.buttonMedium,
         ),
       ),
-      
+
       // Text button theme
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
@@ -100,7 +98,7 @@ class AppTheme {
           textStyle: AppTextStyles.buttonMedium,
         ),
       ),
-      
+
       // Input decoration theme
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
@@ -121,13 +119,14 @@ class AppTheme {
           borderRadius: BorderRadius.circular(12),
           borderSide: const BorderSide(color: AppColors.error, width: 1.5),
         ),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         hintStyle: AppTextStyles.bodyMedium.copyWith(
           color: AppColors.textTertiary,
         ),
         labelStyle: AppTextStyles.labelMedium,
       ),
-      
+
       // Bottom navigation bar theme
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: AppColors.surface,
@@ -138,14 +137,14 @@ class AppTheme {
         selectedLabelStyle: AppTextStyles.labelSmall,
         unselectedLabelStyle: AppTextStyles.labelSmall,
       ),
-      
+
       // Divider theme
       dividerTheme: const DividerThemeData(
         color: AppColors.divider,
         thickness: 1,
         space: 1,
       ),
-      
+
       // Icon theme
       iconTheme: const IconThemeData(
         color: AppColors.textSecondary,

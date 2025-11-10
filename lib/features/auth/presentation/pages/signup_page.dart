@@ -33,15 +33,13 @@ class _SignUpPageState extends State<SignUpPage> {
 
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height;
-    
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
         children: [
           // Purple header section
           Container(
-            height: screenHeight * 0.15,
+            height: 120,
             decoration: const BoxDecoration(
               gradient: LinearGradient(
                 colors: [AppColors.primary, AppColors.primaryLight],
@@ -55,7 +53,8 @@ class _SignUpPageState extends State<SignUpPage> {
                 child: Row(
                   children: [
                     IconButton(
-                      icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
+                      icon:
+                          const Icon(Icons.arrow_back_ios, color: Colors.white),
                       onPressed: () => context.pop(),
                     ),
                     const SizedBox(width: 8),
@@ -71,7 +70,7 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
             ),
           ),
-          
+
           // Main content
           Expanded(
             child: Container(
@@ -90,7 +89,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const SizedBox(height: 10),
-                      
+
                       // Welcome text
                       Text(
                         'Welcome to us,',
@@ -106,14 +105,14 @@ class _SignUpPageState extends State<SignUpPage> {
                           color: AppColors.textSecondary,
                         ),
                       ),
-                      
+
                       const SizedBox(height: 40),
-                      
+
                       // Decorative illustration area
                       _buildIllustrationArea(),
-                      
+
                       const SizedBox(height: 40),
-                      
+
                       // Name field
                       AppTextField(
                         hintText: 'Name',
@@ -126,7 +125,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         },
                       ),
                       const SizedBox(height: 20),
-                      
+
                       // Phone field
                       AppTextField(
                         hintText: 'Text input',
@@ -140,7 +139,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         },
                       ),
                       const SizedBox(height: 20),
-                      
+
                       // Password field
                       AppTextField(
                         hintText: 'Password',
@@ -161,7 +160,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         },
                       ),
                       const SizedBox(height: 20),
-                      
+
                       // Terms and conditions checkbox
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -185,7 +184,8 @@ class _SignUpPageState extends State<SignUpPage> {
                                 text: TextSpan(
                                   children: [
                                     TextSpan(
-                                      text: 'By creating an account your aggree to our ',
+                                      text:
+                                          'By creating an account your agree to our ',
                                       style: AppTextStyles.bodySmall.copyWith(
                                         color: AppColors.textSecondary,
                                       ),
@@ -205,7 +205,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         ],
                       ),
                       const SizedBox(height: 30),
-                      
+
                       // Sign up button
                       AppButton(
                         text: 'Sign up',
@@ -214,7 +214,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         onPressed: _agreeToTerms ? _handleSignUp : null,
                       ),
                       const SizedBox(height: 20),
-                      
+
                       // Sign in link
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -263,7 +263,7 @@ class _SignUpPageState extends State<SignUpPage> {
               shape: BoxShape.circle,
             ),
           ),
-          
+
           // Phone illustration
           Container(
             width: 60,
@@ -278,7 +278,7 @@ class _SignUpPageState extends State<SignUpPage> {
               size: 30,
             ),
           ),
-          
+
           // Decorative dots
           Positioned(
             top: 20,

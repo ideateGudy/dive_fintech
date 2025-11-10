@@ -28,10 +28,10 @@ class AppCard extends StatelessWidget {
     final card = Card(
       color: backgroundColor ?? AppColors.surface,
       elevation: elevation ?? 2,
-      shadowColor: AppColors.textPrimary.withOpacity(0.1),
+      shadowColor: AppColors.textPrimary.withValues(alpha: 0.1),
       shape: RoundedRectangleBorder(
-        borderRadius: borderRadius ?? 
-            BorderRadius.circular(AppConstants.borderRadius12),
+        borderRadius:
+            borderRadius ?? BorderRadius.circular(AppConstants.borderRadius12),
       ),
       margin: margin ?? EdgeInsets.zero,
       child: Padding(
@@ -133,7 +133,7 @@ class TransferCard extends StatelessWidget {
             width: AppConstants.iconSize48,
             height: AppConstants.iconSize48,
             decoration: BoxDecoration(
-              color: iconColor.withOpacity(0.1),
+              color: iconColor.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(AppConstants.borderRadius12),
             ),
             child: Icon(
@@ -184,7 +184,7 @@ class BalanceCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(AppConstants.borderRadius16),
         boxShadow: [
           BoxShadow(
-            color: AppColors.primary.withOpacity(0.3),
+            color: AppColors.primary.withValues(alpha: 0.3),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -196,7 +196,7 @@ class BalanceCard extends StatelessWidget {
           Text(
             accountType,
             style: AppTextStyles.bodyMedium.copyWith(
-              color: Colors.white.withOpacity(0.8),
+              color: Colors.white.withValues(alpha: 0.8),
             ),
           ),
           const SizedBox(height: AppConstants.spacing8),
@@ -212,7 +212,7 @@ class BalanceCard extends StatelessWidget {
             Text(
               cardNumber!,
               style: AppTextStyles.bodyMedium.copyWith(
-                color: Colors.white.withOpacity(0.9),
+                color: Colors.white.withValues(alpha: 0.9),
                 letterSpacing: 2,
               ),
             ),

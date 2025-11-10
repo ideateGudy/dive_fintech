@@ -98,7 +98,7 @@ class HomePage extends StatelessWidget {
           ),
         ),
         const SizedBox(height: AppConstants.spacing16),
-        
+
         // Account and Card section
         AccountCard(
           title: AppStrings.accountAndCard,
@@ -107,7 +107,7 @@ class HomePage extends StatelessWidget {
             width: 48,
             height: 48,
             decoration: BoxDecoration(
-              color: AppColors.primary.withOpacity(0.1),
+              color: AppColors.primary.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(12),
             ),
             child: const Icon(
@@ -123,7 +123,7 @@ class HomePage extends StatelessWidget {
           ),
         ),
         const SizedBox(height: AppConstants.spacing16),
-        
+
         // Transfer via card number
         const TransferCard(
           title: AppStrings.transferViaCardNumber,
@@ -160,7 +160,7 @@ class HomePage extends StatelessWidget {
           ],
         ),
         const SizedBox(height: AppConstants.spacing16),
-        
+
         // Transaction items
         _buildTransactionItem(
           'Netflix Subscription',
@@ -203,7 +203,7 @@ class HomePage extends StatelessWidget {
             width: 40,
             height: 40,
             decoration: BoxDecoration(
-              color: amountColor.withOpacity(0.1),
+              color: amountColor.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Icon(

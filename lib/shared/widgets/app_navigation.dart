@@ -67,7 +67,7 @@ class AppTabBar extends StatelessWidget {
         children: tabs.asMap().entries.map((entry) {
           final index = entry.key;
           final text = entry.value;
-          
+
           return AppTab(
             text: text,
             isSelected: selectedIndex == index,
@@ -98,7 +98,7 @@ class AppBottomNavigation extends StatelessWidget {
         color: AppColors.surface,
         boxShadow: [
           BoxShadow(
-            color: AppColors.textPrimary.withOpacity(0.1),
+            color: AppColors.textPrimary.withValues(alpha: 0.1),
             blurRadius: 10,
             offset: const Offset(0, -2),
           ),
@@ -116,7 +116,7 @@ class AppBottomNavigation extends StatelessWidget {
               final index = entry.key;
               final item = entry.value;
               final isSelected = currentIndex == index;
-              
+
               return GestureDetector(
                 onTap: () => onTap(index),
                 child: Container(
@@ -125,18 +125,19 @@ class AppBottomNavigation extends StatelessWidget {
                     vertical: AppConstants.spacing8,
                   ),
                   decoration: BoxDecoration(
-                    color: isSelected 
-                        ? AppColors.primary.withOpacity(0.1)
+                    color: isSelected
+                        ? AppColors.primary.withValues(alpha: 0.1)
                         : Colors.transparent,
-                    borderRadius: BorderRadius.circular(AppConstants.borderRadius12),
+                    borderRadius:
+                        BorderRadius.circular(AppConstants.borderRadius12),
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Icon(
                         isSelected ? item.activeIcon : item.inactiveIcon,
-                        color: isSelected 
-                            ? AppColors.primary 
+                        color: isSelected
+                            ? AppColors.primary
                             : AppColors.textTertiary,
                         size: AppConstants.iconSize24,
                       ),
@@ -144,12 +145,11 @@ class AppBottomNavigation extends StatelessWidget {
                       Text(
                         item.label,
                         style: AppTextStyles.labelSmall.copyWith(
-                          color: isSelected 
-                              ? AppColors.primary 
+                          color: isSelected
+                              ? AppColors.primary
                               : AppColors.textTertiary,
-                          fontWeight: isSelected 
-                              ? FontWeight.w600 
-                              : FontWeight.w400,
+                          fontWeight:
+                              isSelected ? FontWeight.w600 : FontWeight.w400,
                         ),
                       ),
                     ],

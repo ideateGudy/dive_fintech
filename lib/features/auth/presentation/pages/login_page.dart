@@ -30,9 +30,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height;
-    
-    return  Scaffold(
+    return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
         children: [
@@ -40,15 +38,15 @@ class _LoginPageState extends State<LoginPage> {
           Container(
             height: 150,
             decoration: const BoxDecoration(
-              color: AppColors.primary,   
+              color: AppColors.primary,
             ),
             child: SafeArea(
               child: Row(
                 children: [
                   IconButton(
-                    icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
-                    onPressed: (){}
-                  ),
+                      icon:
+                          const Icon(Icons.arrow_back_ios, color: Colors.white),
+                      onPressed: () => context.pop()),
                   const SizedBox(width: 8),
                   Text(
                     'Sign In',
@@ -61,8 +59,8 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
-          
-       //   Main content
+
+          //   Main content
           Expanded(
             child: Container(
               decoration: const BoxDecoration(
@@ -80,7 +78,7 @@ class _LoginPageState extends State<LoginPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const SizedBox(height: 10),
-                      
+
                       // Welcome text
                       Text(
                         AppStrings.welcomeBack,
@@ -96,14 +94,14 @@ class _LoginPageState extends State<LoginPage> {
                           color: AppColors.textSecondary,
                         ),
                       ),
-                      
+
                       const SizedBox(height: 30),
-                      
+
                       // Decorative illustration area
-                   //   _buildIllustrationArea(),
-                      
+                      //   _buildIllustrationArea(),
+
                       const SizedBox(height: 30),
-                      
+
                       // Email field
                       AppTextField(
                         hintText: 'Enter your email',
@@ -113,14 +111,15 @@ class _LoginPageState extends State<LoginPage> {
                           if (value == null || value.isEmpty) {
                             return AppStrings.fieldRequired;
                           }
-                          if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
+                          if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
+                              .hasMatch(value)) {
                             return AppStrings.invalidEmail;
                           }
                           return null;
                         },
                       ),
                       const SizedBox(height: 20),
-                      
+
                       // Password field
                       AppTextField(
                         hintText: 'Enter your password',
@@ -137,7 +136,7 @@ class _LoginPageState extends State<LoginPage> {
                         },
                       ),
                       const SizedBox(height: 16),
-                      
+
                       // Forgot password link
                       Align(
                         alignment: Alignment.centerRight,
@@ -154,7 +153,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                       const SizedBox(height: 30),
-                      
+
                       // Sign in button
                       AppButton(
                         text: AppStrings.signIn,
@@ -163,7 +162,7 @@ class _LoginPageState extends State<LoginPage> {
                         onPressed: _handleSignIn,
                       ),
                       const SizedBox(height: 20),
-                      
+
                       // Sign up link
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -190,102 +189,6 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                   ),
                 ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildIllustrationArea() {
-    return Center(
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          // Background circle
-          Container(
-            width: 120,
-            height: 120,
-            decoration: const BoxDecoration(
-              color: AppColors.surfaceVariant,
-              shape: BoxShape.circle,
-            ),
-          ),
-          
-          // Phone illustration
-          Container(
-            width: 60,
-            height: 80,
-            decoration: BoxDecoration(
-              color: AppColors.primary,
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: const Icon(
-              Icons.lock_outline,
-              color: Colors.white,
-              size: 30,
-            ),
-          ),
-          
-          // Decorative dots
-          Positioned(
-            top: 20,
-            left: 50,
-            child: Container(
-              width: 8,
-              height: 8,
-              decoration: const BoxDecoration(
-                color: AppColors.primary,
-                shape: BoxShape.circle,
-              ),
-            ),
-          ),
-          Positioned(
-            top: 10,
-            right: 30,
-            child: Container(
-              width: 12,
-              height: 12,
-              decoration: const BoxDecoration(
-                color: Colors.red,
-                shape: BoxShape.circle,
-              ),
-            ),
-          ),
-          Positioned(
-            bottom: 30,
-            left: 20,
-            child: Container(
-              width: 10,
-              height: 10,
-              decoration: const BoxDecoration(
-                color: Colors.teal,
-                shape: BoxShape.circle,
-              ),
-            ),
-          ),
-          Positioned(
-            bottom: 10,
-            right: 40,
-            child: Container(
-              width: 6,
-              height: 6,
-              decoration: const BoxDecoration(
-                color: Colors.blue,
-                shape: BoxShape.circle,
-              ),
-            ),
-          ),
-          Positioned(
-            top: 50,
-            left: 10,
-            child: Container(
-              width: 8,
-              height: 8,
-              decoration: const BoxDecoration(
-                color: Colors.orange,
-                shape: BoxShape.circle,
               ),
             ),
           ),

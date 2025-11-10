@@ -95,9 +95,9 @@ class _AppTextFieldState extends State<AppTextField> {
             helperText: widget.helperText,
             errorText: widget.errorText,
             filled: true,
-            fillColor: widget.enabled 
-                ? AppColors.surfaceVariant 
-                : AppColors.textDisabled.withOpacity(0.1),
+            fillColor: widget.enabled
+                ? AppColors.surfaceVariant
+                : AppColors.textDisabled.withValues(alpha: 0.1),
             prefixIcon: widget.prefixIcon,
             suffixIcon: _buildSuffixIcon(),
             border: OutlineInputBorder(
@@ -123,7 +123,7 @@ class _AppTextFieldState extends State<AppTextField> {
             disabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(AppConstants.borderRadius12),
               borderSide: BorderSide(
-                color: AppColors.border.withOpacity(0.5),
+                color: AppColors.border.withValues(alpha: 0.5),
               ),
             ),
             contentPadding: const EdgeInsets.symmetric(
