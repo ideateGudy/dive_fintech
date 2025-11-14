@@ -19,6 +19,7 @@ class AppStrings {
   static const String createAccount = 'Create Account';
   static const String welcomeBack = 'Welcome Back';
   static const String getStarted = 'Get Started';
+  static const String changeNumber = 'Change your phone number';
   
   // Navigation
   static const String home = 'Home';

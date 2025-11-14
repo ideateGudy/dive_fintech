@@ -1,3 +1,4 @@
+import 'package:dive_fintech/core/constants/app_strings.dart';
 import 'package:dive_fintech/core/navigation/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -147,11 +148,14 @@ class _ForgotPasswordPageCodeState extends State<ForgotPasswordPageCode> {
               ),
             ),
 
-            const Center(
-              child: Text(
-                "Change your phone number",
-                style: TextStyle(
-                    color: AppColors.primary, fontWeight: FontWeight.bold),
+            Center(
+              child: TextButton(
+                onPressed: () {},
+                child: Text(
+                  AppStrings.changeNumber,
+                  style: AppTextStyles.bodyMedium.copyWith(
+                      color: AppColors.primary, fontWeight: FontWeight.bold),
+                ),
               ),
             ),
             const SizedBox(height: 10),
