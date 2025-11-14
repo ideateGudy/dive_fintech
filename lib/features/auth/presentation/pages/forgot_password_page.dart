@@ -1,10 +1,10 @@
+import 'package:dive_fintech/core/navigation/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../shared/widgets/app_button.dart';
 import '../../../../shared/widgets/app_text_field.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_text_styles.dart';
-
 
 class ForgotPasswordPage extends StatefulWidget {
   const ForgotPasswordPage({super.key});
@@ -17,6 +17,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   final _phoneController = TextEditingController();
   bool _isLoading = false;
   bool _codeSent = false;
+  bool _numberAdded = false;
 
   @override
   void dispose() {
@@ -50,7 +51,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 20),
-            
+
             // Instructions
             Text(
               'Type your phone number',
@@ -59,15 +60,16 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
               ),
             ),
             const SizedBox(height: 20),
-            
+
             // Phone input field
             AppTextField(
               hintText: '(+84)',
+              readOnly: true,
               controller: _phoneController,
               keyboardType: TextInputType.phone,
             ),
             const SizedBox(height: 20),
-            
+
             if (_codeSent) ...[
               Text(
                 'We texted you a code to verify your phone number',
@@ -77,9 +79,18 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
               ),
               const SizedBox(height: 30),
             ],
-            
+
             const Spacer(),
-            
+
+            if (_numberAdded) ...[
+              Text(
+                'Please enter your phone number to proceed.',
+                style: AppTextStyles.bodyMedium.copyWith(
+                  color: AppColors.textPrimary,
+                ),
+              ),
+              const SizedBox(height: 30),
+            ],
             if (!_codeSent) ...[
               // Send button
               AppButton(
@@ -89,12 +100,12 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                 onPressed: _handleSendCode,
               ),
             ],
-            
+
             const SizedBox(height: 20),
-            
+
             // Number pad
             _buildNumberPad(),
-            
+
             const SizedBox(height: 40),
           ],
         ),
@@ -196,7 +207,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
 
   void _onNumberTap(String number) {
     if (number == '.') return;
-    
+
     final currentText = _phoneController.text;
     final newText = currentText + number;
     _phoneController.value = TextEditingValue(
@@ -217,7 +228,12 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   }
 
   void _handleSendCode() async {
-    if (_phoneController.text.isEmpty) return;
+    if (_phoneController.text.isEmpty) {
+      setState(() {
+        _numberAdded = true;
+      });
+      return;
+    }
 
     setState(() {
       _isLoading = true;
@@ -226,11 +242,16 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
     // Simulate API call
     await Future.delayed(const Duration(seconds: 2));
 
-    if (mounted) {
-      setState(() {
-        _isLoading = false;
-        _codeSent = true;
-      });
-    }
+    if (!mounted) return;
+
+    setState(() {
+      _isLoading = false;
+      _numberAdded = false;
+      _codeSent = true;
+    });
+
+    await Future.delayed(const Duration(seconds: 2));
+    if (!mounted) return;
+    context.go(AppRoutes.forgotPasswordCode);
   }
 }
